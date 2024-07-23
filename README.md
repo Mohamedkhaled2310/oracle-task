@@ -17,7 +17,7 @@ create user user2 identified by 123;
 grant create session to user1, user2;
 grant create table to user1;
 alter user user1 quota 100m on system;
-2. Setup Schema and Grant Permissions
+### 2. Setup Schema and Grant Permissions
 sql
 Copy code
 conn user1/123;
@@ -25,7 +25,7 @@ create table department(id int, depart_name varchar(50), constraint pk primary k
 create table employee(id int, emp_name varchar(50), salary float, depart_id int, primary key(id), foreign key(depart_id) references department(id));
 grant insert on department to user2;
 grant insert on employee to user2;
-3. Insert Data
+### 3. Insert Data
 sql
 Copy code
 conn user2/123;
@@ -38,7 +38,7 @@ insert into user1.employee values(2, 'mohamed', 1550, 1);
 insert into user1.employee values(3, 'nshat', 1350, 2);
 insert into user1.employee values(4, 'jooo', 1100, 2);
 insert into user1.employee values(5, 'shabaan', 1650, 1);
-4. Create and Grant Procedure
+### 4. Create and Grant Procedure
 sql
 Copy code
 conn manager/123;
@@ -50,7 +50,7 @@ END rais;
 /
 
 grant execute on rais to user1, user2;
-5. Simulate Transactions
+### 5. Simulate Transactions
 sql
 Copy code
 conn user1/123;
@@ -80,7 +80,7 @@ BEGIN
   WHERE depart_id = 1;
 END;
 /
-6. Identify Blocking and Waiting Sessions
+### 6. Identify Blocking and Waiting Sessions
 sql
 Copy code
 conn manager/123;
@@ -95,7 +95,7 @@ SELECT sid, serial#
 FROM V$SESSION
 WHERE EVENT = 'enq: TX - row lock contention'
   AND TYPE = 'USER';
-7. Create Functions
+### 7. Create Functions
 sql
 Copy code
 conn user1/123;
