@@ -26,7 +26,7 @@ create user manager identified by 123;
 -- Grant necessary privileges
 grant create session to manager;
 grant dba to manager;
-```sql
+```markdown
 -- Connect as user1
 conn user1/123;
 
