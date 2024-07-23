@@ -22,6 +22,7 @@ This document provides a comprehensive guide on managing Oracle database users, 
 -- Create a manager user
 create user manager identified by 123;
 
+#2-setup-schema-and-grant-permissions
 -- Grant necessary privileges
 grant create session to manager;
 grant dba to manager;
