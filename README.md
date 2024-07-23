@@ -1,21 +1,15 @@
--- SQL Block Description
--- Example: Creating a table
+# Oracle Database Management and Locking
 
-CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    hire_date DATE,
-    salary DECIMAL(10, 2)
-);
+## Introduction
 
--- SQL Block Description
--- Example: Inserting data into the table
+This document provides a comprehensive guide on managing Oracle database users, handling row lock contention, creating and executing procedures, and defining functions. Follow the steps below to understand various aspects of Oracle database management.
 
-INSERT INTO employees (employee_id, first_name, last_name, hire_date, salary)
-VALUES (1, 'John', 'Doe', '2024-07-23', 50000.00);
+## 1. Create Users and Grant Privileges
 
--- SQL Block Description
--- Example: Querying the table
+```sql
+-- Create a manager user
+CREATE USER manager IDENTIFIED BY 123;
 
-SELECT * FROM employees;
+-- Grant necessary privileges
+GRANT CREATE SESSION TO manager;
+GRANT DBA TO manager;
