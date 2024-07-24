@@ -1,22 +1,4 @@
--- Connect as user1
-conn user1/123;
 
--- Create department table
-create table department (
-  id int,
-  depart_name varchar(50),
-  constraint pk primary key(id)
-);
-
--- Create employee table
-create table employee (
-  id int,
-  emp_name varchar(50),
-  salary float,
-  depart_id int,
-  primary key(id),
-  foreign key(depart_id) references department(id)
-);
 
 -- Connect as user1
 conn user1/123;
